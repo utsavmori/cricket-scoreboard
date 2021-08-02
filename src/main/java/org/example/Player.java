@@ -1,18 +1,20 @@
 package org.example;
 
-public class Player implements Comparable{
-    String name;
-    int score;
-    int fours;
-    int balls;
-    int sixes;
-    int order;
+public class Player implements Comparable {
+    private String name;
+    private int score;
+    private int fours;
+    private int balls;
+    private int sixes;
+    private int order;
 
-    public Player(){
-        score=0;
-        sixes=0;
-        fours=0;balls=0;
+    public Player() {
+        score = 0;
+        sixes = 0;
+        fours = 0;
+        balls = 0;
     }
+
     public String getName() {
         return name;
     }
@@ -62,15 +64,14 @@ public class Player implements Comparable{
         this.order = order;
     }
 
-    public Player name(String name){
-        this.name=name;
+    public Player name(String name) {
+        this.name = name;
         return this;
     }
 
 
-
-    public Player order(int order){
-        this.order=order;
+    public Player order(int order) {
+        this.order = order;
         return this;
     }
 
@@ -83,9 +84,8 @@ public class Player implements Comparable{
     }
 
 
-
     @Override
     public int compareTo(Object o) {
-        return this.order > ((Player)o).order?1:-1;
+        return this.order > ((Player) o).order ? 1 : -1;
     }
 }

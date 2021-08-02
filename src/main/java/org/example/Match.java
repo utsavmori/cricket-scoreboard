@@ -4,6 +4,7 @@ public class Match {
     private Team[] teams;
     private Inning[] innings;
     private int currentInning;
+    // team list also can be a parameter of constructor but as second team input is after first team's play done. it is not feasible at one shot.
     public Match( int numberOfOvers ){
         teams=new Team[2];
         innings=new Inning[]{new Inning(numberOfOvers),new Inning(numberOfOvers)};
@@ -34,6 +35,5 @@ public class Match {
     public Inning getCurrentInning() {
         return innings[currentInning];
     }
-
 
 }

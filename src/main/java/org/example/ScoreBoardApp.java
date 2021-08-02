@@ -17,22 +17,22 @@ public class ScoreBoardApp {
             String playerName = inp.nextLine();
             team = team.addPlayer(new Player().name(playerName).order(i + 1));
         }
-        match.setTeam(team,1);
+        match.setTeam(team, 1);
         match.startInning(1, 1);
 
         Inning inning = match.getCurrentInning();
-        inning.startOver(1);
+        inning.startInning();
         for (int i = 0; i < numberOfOvers; i++) {
 
             System.out.println("Over " + (i + 1) + ": ");
-            while (!inning.isCurrentOverDone()&& !inning.getAllout()) {
+            while (!inning.isCurrentOverDone() && !inning.getAllout()) {
                 String ball = inp.nextLine();
                 inning.throwBall(new Ball(ball));
             }
             System.out.println("Scorecard for Team 1:");
             System.out.println("Player Name\t\tScore\t\t4s\t\t6s\t\tballs");
             inning.getTeam().getPlayers().forEach((x) -> {
-                System.out.println(x.name + (inning.isPlayerPlaying(x) ? "*" : "") + "\t\t\t\t" + x.score + "\t\t\t" + x.fours + "\t\t" + x.sixes + "\t\t" + x.balls);
+                System.out.println(x.getName() + (inning.isPlayerPlaying(x) ? "*" : "") + "\t\t\t\t" + x.getScore() + "\t\t\t" + x.getFours() + "\t\t" + x.getSixes() + "\t\t" + x.getBalls());
             });
             System.out.print("Total: ");
             System.out.println(inning.getTeamScore() + "/" + inning.getWickets());
@@ -48,11 +48,11 @@ public class ScoreBoardApp {
             String playerName = inp.nextLine();
             team2 = team2.addPlayer(new Player().name(playerName).order(i + 1));
         }
-        match.setTeam(team2,2);
+        match.setTeam(team2, 2);
         match.startInning(2, 2);
 
         Inning inning2 = match.getCurrentInning();
-        inning2.startOver(1);
+        inning2.startInning();
         for (int i = 0; i < numberOfOvers; i++) {
 
             System.out.println("Over " + (i + 1) + ": ");
@@ -63,13 +63,13 @@ public class ScoreBoardApp {
             System.out.println("Scorecard for Team 1:");
             System.out.println("Player Name\t\tScore\t\t4s\t\t6s\t\tballs");
             inning2.getTeam().getPlayers().forEach((x) -> {
-                System.out.println(x.name + (inning2.isPlayerPlaying(x) ? "*" : "") + "\t\t\t\t" + x.score + "\t\t\t" + x.fours + "\t\t" + x.sixes + "\t\t" + x.balls);
+                System.out.println(x.getName() + (inning2.isPlayerPlaying(x) ? "*" : "") + "\t\t\t\t" + x.getScore() + "\t\t\t" + x.getFours() + "\t\t" + x.getSixes() + "\t\t" + x.getBalls());
             });
             System.out.print("Total: ");
             System.out.println(inning2.getTeamScore() + "/" + inning2.getWickets());
             System.out.print("Overs: ");
 
-            System.out.println(inning.getBallsInLastOver());
+            System.out.println(inning2.getBallsInLastOver());
         }
 
         if (inning.getTeamScore() > inning2.getTeamScore()) {
