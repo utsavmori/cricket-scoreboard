@@ -8,10 +8,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class InningTest {
-    @Test(expected = ScoreboardException.class)
+    @Test
     public void test_start_inning_is_allowd() throws ScoreboardException {
         Inning inning = new Inning(2);
+        Team teamTest = new Team(2);
+        teamTest = teamTest.addPlayer(new Player().name("Utsav").order(1));
+        teamTest = teamTest.addPlayer(new Player().name("Mori").order(2));
+        inning.setBattingTeam(teamTest);
         inning.startInning();
+
     }
 
 

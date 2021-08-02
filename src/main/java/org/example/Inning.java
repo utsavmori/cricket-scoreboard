@@ -81,6 +81,7 @@ public class Inning {
 
     private void calculateRunsForTeam(Ball ball) {
         teamScore += ball.getRuns();
+
     }
 
     public Team getTeam() {
@@ -97,6 +98,10 @@ public class Inning {
 
     public int getWickets() {
         return wickets;
+    }
+
+    public int getCurrentOver() {
+        return currentOver + 1;
     }
 
     //utility for main class

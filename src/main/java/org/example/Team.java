@@ -5,6 +5,7 @@ import org.example.exception.ScoreboardException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Team {
     private final List<Player> players;
     private final int numberOfPlayers;
